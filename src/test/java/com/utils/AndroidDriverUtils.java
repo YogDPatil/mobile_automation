@@ -53,5 +53,9 @@ public abstract class AndroidDriverUtils {
 				((RemoteWebElement) wait.until(ExpectedConditions.visibilityOfElementLocated(locator))).getId()));
 
 	}
+	
+	public String getElementText(By locator) {
+		return wait.until(ExpectedConditions.visibilityOfElementLocated(locator)).getText();
+	}
 
 }

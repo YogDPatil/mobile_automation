@@ -19,20 +19,25 @@ public final class LoginPage extends AndroidDriverUtils {
 	}
 
 	private static final By SKIP_BUTTON_LOCATOR = AppiumBy.id("com.bt.bms:id/launcher_tv_for_skip");
-	private static final By DETECT_MY_LOCATION_BTN_LOCATOR = AppiumBy.id("com.bt.bms:id/btn_positive");
-	private static final By ACCESS_DEVICE_LOCATION_BUTTON_LOCATOR = AppiumBy
-			.id("com.android.permissioncontroller:id/permission_allow_foreground_only_button");
+	private static final By DETECT_MY_LOCATION_BTN_LOCATOR = AppiumBy.id("com.bt.bms:id/btn_negative");
+	private static final By SELECT_CITY_LOCATOR = AppiumBy.xpath("//android.widget.TextView[@text='Pune']");
+	private static final By ALLOW_NOTIFICATION_BUTTON_LOCATOR = AppiumBy
+			.xpath("//android.widget.Button[@text='Allow']");
+	private static final By HOME_PAGE_HEADER_LOCATOR = AppiumBy
+			.id("com.bt.bms:id/title_header_main");
+	
 
-	public void goToHomePage() {
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+	public String verifyUserIsOnHomePage() {
+//		try {
+//			Thread.sleep(3000);
+//		} catch (InterruptedException e) {
+//			e.printStackTrace();
+//		}
 		clickOnGesture(SKIP_BUTTON_LOCATOR);
 		clickOnGesture(DETECT_MY_LOCATION_BTN_LOCATOR);
-		clickOnGesture(ACCESS_DEVICE_LOCATION_BUTTON_LOCATOR);
-
+		clickOnGesture(SELECT_CITY_LOCATOR);
+		clickOnGesture(ALLOW_NOTIFICATION_BUTTON_LOCATOR);
+		return getElementText(HOME_PAGE_HEADER_LOCATOR);
 	}
 
 }

@@ -6,6 +6,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
@@ -17,7 +18,7 @@ public final class AppiumTest extends TestBase {
 
 	@Test
 	public void goToHomePage() throws MalformedURLException, URISyntaxException {
-		loginPage.goToHomePage();
+		Assert.assertEquals(loginPage.verifyUserIsOnHomePage(), "Welcome Guest!", "User is not on Home Page");
 	}
 
 }
