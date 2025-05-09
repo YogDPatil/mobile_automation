@@ -53,7 +53,12 @@ public abstract class AndroidDriverUtils {
 				((RemoteWebElement) wait.until(ExpectedConditions.visibilityOfElementLocated(locator))).getId()));
 
 	}
-	
+
+	public void longClickGesture(By locator) {
+		((JavascriptExecutor) androidDriver).executeScript("mobile: longClickGesture", ImmutableMap.of("elementId",
+				((RemoteWebElement) wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator))).getId()));
+	}
+
 	public String getElementText(By locator) {
 		return wait.until(ExpectedConditions.visibilityOfElementLocated(locator)).getText();
 	}

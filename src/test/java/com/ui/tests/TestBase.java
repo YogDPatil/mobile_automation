@@ -1,6 +1,6 @@
 package com.ui.tests;
 
-import java.io.File; 
+import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -10,8 +10,6 @@ import java.util.Map;
 
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import com.ui.pages.LoginPage;
-
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
@@ -21,7 +19,6 @@ public abstract class TestBase {
 
 	private AppiumDriverLocalService service;
 	protected static AndroidDriver androidDriver;
-	protected LoginPage loginPage;
 
 	@BeforeMethod(alwaysRun = true)
 	public void startAppiumServerAndInitialiseAppiumDriver() throws MalformedURLException, URISyntaxException {
@@ -44,12 +41,10 @@ public abstract class TestBase {
 
 		UiAutomator2Options opt = new UiAutomator2Options();
 		opt.setDeviceName("Pixel 9");
-		opt.setApp(
-				"/Users/codeclouds-yogesh/Documents/MyEclipseWorkspace/mobile_automation/src/test/resources/testing _app/bookmyshow.apk");
+		opt.setApp(System.getProperty("user.dir") + "/src/test/resources/testing _app/testapp.apk");
 
 		androidDriver = new AndroidDriver(new URI("http://127.0.0.1:4723").toURL(), opt);
 		androidDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-		loginPage = new LoginPage(androidDriver);
 	}
 
 	public AndroidDriver getAndroidDriver() {
