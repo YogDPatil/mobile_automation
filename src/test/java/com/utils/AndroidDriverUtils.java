@@ -37,6 +37,10 @@ public abstract class AndroidDriverUtils {
 		return wait.until(ExpectedConditions.visibilityOf(ele));
 	}
 
+	public WebElement findWebElement(By locator) {
+		return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+	}
+
 	public void clickOnByJSE(WebElement ele) {
 		JavascriptExecutor js = (JavascriptExecutor) androidDriver;
 		js.executeScript("arguments[0].click()", wait.until(ExpectedConditions.elementToBeClickable(ele)));
@@ -74,9 +78,16 @@ public abstract class AndroidDriverUtils {
 		} while (canScrollMore);
 	}
 
+	public void swipeGesture(By locator, String swipeDirection) {
+		((JavascriptExecutor) androidDriver).executeScript("mobile: swipeGesture",
+				ImmutableMap.of("elementId",
+						((RemoteWebElement) wait.until(ExpectedConditions.visibilityOfElementLocated(locator))).getId(),
+						"direction", swipeDirection, "percent", 0.75));
+	}
+
 	public void scrollUptoTheElement(String elementText) {
-		androidDriver.findElement(AppiumBy
-		.androidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"" + elementText + "\"));"));
+		androidDriver.findElement(AppiumBy.androidUIAutomator(
+				"new UiScrollable(new UiSelector()).scrollIntoView(text(\"" + elementText + "\"));"));
 	}
 
 }
