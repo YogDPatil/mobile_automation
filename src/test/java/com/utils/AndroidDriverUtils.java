@@ -74,4 +74,9 @@ public abstract class AndroidDriverUtils {
 		} while (canScrollMore);
 	}
 
+	public void scrollUptoTheElement(String elementText) {
+		androidDriver.findElement(AppiumBy
+		.androidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"" + elementText + "\"));"));
+	}
+
 }

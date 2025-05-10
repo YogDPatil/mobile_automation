@@ -15,9 +15,14 @@ public final class ScrollOnPage extends AndroidDriverUtils {
 
 	private static final By VIEWS_ELEMENT_LOCATOR = AppiumBy.accessibilityId("Views");
 
-	public void scrollUptoTheBottomOnPage() {
+	public void validateScrollUptoTheBottomOnPage() {
 		clickOnGesture(VIEWS_ELEMENT_LOCATOR);
 		scrollUptoBottomOfPage();
+	}
+
+	public void validatescrollUptoTheElementOnPage(String elementText) {
+		clickOnGesture(VIEWS_ELEMENT_LOCATOR);
+		scrollUptoTheElement(elementText);
 	}
 
 }

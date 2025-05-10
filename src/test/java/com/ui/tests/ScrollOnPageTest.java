@@ -8,7 +8,12 @@ public final class ScrollOnPageTest extends TestBase {
 
 	@Test
 	public void verifyScrollOnUpToTheEndOfPage() {
-		(new ScrollOnPage(androidDriver)).scrollUptoTheBottomOnPage();
+		(new ScrollOnPage(androidDriver)).validateScrollUptoTheBottomOnPage();
+	}
+	
+	@Test
+	public void verifyScrollUpToTheElement() {
+		(new ScrollOnPage(androidDriver)).validatescrollUptoTheElementOnPage("ScrollBars");
 	}
 
 }
