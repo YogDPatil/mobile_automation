@@ -65,4 +65,13 @@ public abstract class AndroidDriverUtils {
 		return wait.until(ExpectedConditions.visibilityOfElementLocated(locator)).getText();
 	}
 
+	public void scrollUptoBottomOfPage() {
+		boolean canScrollMore;
+		do {
+			canScrollMore = (Boolean) ((JavascriptExecutor) androidDriver).executeScript("mobile: scrollGesture",
+					ImmutableMap.of("left", 100, "top", 100, "width", 200, "height", 200, "direction", "down",
+							"percent", 3.0));
+		} while (canScrollMore);
+	}
+
 }
