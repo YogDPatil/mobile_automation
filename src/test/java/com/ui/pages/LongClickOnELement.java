@@ -26,7 +26,7 @@ public final class LongClickOnELement extends AndroidDriverUtils {
 			.xpath("//android.widget.TextView[@content-desc=\"1. Custom Adapter\"]");
 	private static final By PEOPLE_NAMES_ELEMENT_LOCATOR = AppiumBy
 			.xpath("//android.widget.TextView[@text='People Names']");
-	private static final By PEOPLE_NAMES_MENU_LIST_LOCATOR = AppiumBy.id("android.widget.TextView");
+	private static final By PEOPLE_NAMES_MENU_LIST_LOCATOR = AppiumBy.className("android.widget.TextView");
 
 	public List<String> verifyMenuListByLongClickingOnElement() {
 		clickOnGesture(VIEWS_ELEMENT_LOCATOR);

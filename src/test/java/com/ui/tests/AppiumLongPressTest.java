@@ -23,8 +23,6 @@ public final class AppiumLongPressTest extends TestBase {
 	public void validateMenuDisplayedAfterLongPressOnElement() {
 		LongClickOnELement longClickOnELement = new LongClickOnELement(androidDriver);
 		System.out.println(longClickOnELement.verifyMenuListByLongClickingOnElement());
-//		Assert.assertEquals(longClickOnELement.verifyMenuListByLongClickingOnElement(), "Welcome Guest!",
-//				"User is not on Home Page.");
 	}
 
 }
