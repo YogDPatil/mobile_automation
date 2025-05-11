@@ -14,8 +14,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.google.common.collect.ImmutableMap;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.touch.TapOptions;
-import io.appium.java_client.touch.offset.ElementOption;
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
+
+
 
 public abstract class AndroidDriverUtils {
 	private WebDriverWait wait;
@@ -101,6 +103,10 @@ public abstract class AndroidDriverUtils {
 	public void rotateScreen() {
 		DeviceRotation landscape = new DeviceRotation(0, 0, 90);
 		androidDriver.rotate(landscape);
+	}
+
+	public void pressAndroidNavigationButton() {
+		androidDriver.pressKey(new KeyEvent(AndroidKey.HOME));
 	}
 
 }
