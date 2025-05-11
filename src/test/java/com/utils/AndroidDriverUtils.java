@@ -90,4 +90,11 @@ public abstract class AndroidDriverUtils {
 				"new UiScrollable(new UiSelector()).scrollIntoView(text(\"" + elementText + "\"));"));
 	}
 
+	public void dragAndDropElement(By locator, int xCordinate, int yCordinate) {
+		((JavascriptExecutor) androidDriver).executeScript("mobile: dragGesture",
+				ImmutableMap.of("elementId",
+						((RemoteWebElement) wait.until(ExpectedConditions.visibilityOfElementLocated(locator))).getId(),
+						"endX", xCordinate, "endY", yCordinate));
+	}
+
 }
