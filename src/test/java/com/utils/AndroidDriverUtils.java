@@ -4,6 +4,7 @@ import java.time.Duration;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.DeviceRotation;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebElement;
@@ -95,6 +96,11 @@ public abstract class AndroidDriverUtils {
 				ImmutableMap.of("elementId",
 						((RemoteWebElement) wait.until(ExpectedConditions.visibilityOfElementLocated(locator))).getId(),
 						"endX", xCordinate, "endY", yCordinate));
+	}
+
+	public void rotateScreen() {
+		DeviceRotation landscape = new DeviceRotation(0, 0, 90);
+		androidDriver.rotate(landscape);
 	}
 
 }
